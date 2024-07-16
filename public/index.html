@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Run Batch Script</title>
+    <script type="text/javascript">
+        function runBatchScript() {
+            fetch('/api/run-script')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('output').innerText = data;
+                })
+                .catch(error => {
+                    document.getElementById('output').innerText = 'Error: ' + error;
+                });
+        }
+    </script>
+</head>
+<body>
+    <button onclick="runBatchScript()">Run Script</button>
+    <pre id="output"></pre>
+</body>
+</html>
